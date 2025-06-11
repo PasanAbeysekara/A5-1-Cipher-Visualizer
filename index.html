@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A5/1 Cipher Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>A5/1 Cipher Visualizer</h1>
+
+        <div class="controls">
+            <div class="input-group">
+                <label for="key">64-bit Key (binary):</label>
+                <input type="text" id="key" value="0101010101010101010101010101010101010101010101010101010101010101">
+            </div>
+            <div class="input-group">
+                <label for="frame">22-bit Frame No. (binary):</label>
+                <input type="text" id="frame" value="1100110011001100110011">
+            </div>
+            <div class="input-group">
+                <label for="plaintext">Plaintext (ASCII):</label>
+                <input type="text" id="plaintext" value="HELLO">
+            </div>
+            <button id="initializeBtn">Initialize LFSRs</button>
+            <button id="nextStepBtn" disabled>Next Keystream Bit</button>
+            <button id="runAllBtn" disabled>Generate Full Keystream & Encrypt/Decrypt</button>
+            <button id="resetBtn">Reset All</button>
+        </div>
+
+        <div class="lfsr-display">
+            <h2>LFSR States</h2>
+            <div class="lfsr-container">
+                <div class="lfsr" id="lfsrX">
+                    <h3>LFSR X (19 bits)</h3>
+                    <div class="bits" id="bitsX"></div>
+                    <p>Taps: 18, 17, 16, 13 | Clock Bit: 8 | Output Bit: 18</p>
+                    <p>Clocking Decision: <span id="clockXDecision">-</span></p>
+                </div>
+                <div class="lfsr" id="lfsrY">
+                    <h3>LFSR Y (22 bits)</h3>
+                    <div class="bits" id="bitsY"></div>
+                    <p>Taps: 21, 20 | Clock Bit: 10 | Output Bit: 21</p>
+                    <p>Clocking Decision: <span id="clockYDecision">-</span></p>
+                </div>
+                <div class="lfsr" id="lfsrZ">
+                    <h3>LFSR Z (23 bits)</h3>
+                    <div class="bits" id="bitsZ"></div>
+                    <p>Taps: 22, 21, 20, 7 | Clock Bit: 10 | Output Bit: 22</p>
+                    <p>Clocking Decision: <span id="clockZDecision">-</span></p>
+                </div>
+            </div>
+             <p>Majority Bit: <span id="majorityBitDisplay">-</span></p>
+        </div>
+
+        <div class="output-section">
+            <h2>Keystream & Output</h2>
+            <div class="output-group">
+                <label>Generated Keystream Bit:</label>
+                <span id="keystreamBitDisplay">-</span>
+            </div>
+            <div class="output-group">
+                <label>Full Keystream (binary):</label>
+                <textarea id="fullKeystream" rows="3" readonly></textarea>
+            </div>
+            <div class="output-group">
+                <label>Plaintext (binary):</label>
+                <textarea id="plaintextBinary" rows="3" readonly></textarea>
+            </div>
+            <div class="output-group">
+                <label>Ciphertext (binary):</label>
+                <textarea id="ciphertextBinary" rows="3" readonly></textarea>
+            </div>
+            <div class="output-group">
+                <label>Ciphertext (hex):</label>
+                <span id="ciphertextHex">-</span>
+            </div>
+             <div class="output-group">
+                <label>Decrypted Text (ASCII):</label>
+                <span id="decryptedText">-</span>
+            </div>
+        </div>
+
+        <div class="log-section">
+            <h2>Log</h2>
+            <textarea id="logArea" rows="10" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
