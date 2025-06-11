@@ -1,0 +1,145 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+h2 {
+    margin-top: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.controls, .output-section, .log-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: 98%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace; /* Good for binary */
+}
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#resetBtn {
+    background-color: #d9534f;
+}
+#resetBtn:hover {
+    background-color: #c9302c;
+}
+
+.lfsr-display {
+    text-align: center;
+}
+.lfsr-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+.lfsr {
+    border: 1px solid #eee;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 30%;
+}
+.lfsr h3 {
+    font-size: 1.1em;
+    margin-top: 0;
+}
+.bits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+    word-break: break-all; /* Ensure long bit strings wrap */
+}
+.bit {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 1px;
+    font-size: 0.9em;
+    font-family: 'Courier New', Courier, monospace;
+}
+.bit.one { background-color: #add8e6; } /* Light blue for 1 */
+.bit.zero { background-color: #ffcccb; } /* Light red for 0 */
+.bit.tap { border: 2px solid gold; }
+.bit.clock { box-shadow: 0 0 5px 2px orange; }
+.bit.output { border: 2px solid green; }
+
+#logArea {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+
+.output-group {
+    margin-bottom: 8px;
+}
+.output-group label {
+    font-weight: bold;
+    min-width: 180px;
+    display: inline-block;
+}
+.output-group span, .output-group textarea {
+    font-family: 'Courier New', Courier, monospace;
+}
